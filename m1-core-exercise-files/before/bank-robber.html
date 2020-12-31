@@ -5,10 +5,24 @@
 </head>
 <body>
     <div id="content">What's Wrong?</div>
+    
+    <!--These libraries conflict with one another, need to specify which one to use-->
     <script src="Scripts/prototype.js"></script>
     <script src="Scripts/jquery.js"></script>
+
     <script>
-        $("content").style.display = "none"; // Prototype
+        ////method 1 explicitly show the no conflict
+        //jQuery.noConflict(); //must use standar jQuery
+        //$("content").style.display = "none"; // Prototype
+        //jQuery("#content").show().animate({ fontSize: "64px" }, 1000); //givining it an animated style to show it still works
+        ////method 2 use a built in no conflict
+        //jQuery(function ($) { //Must speccify $ param and jQuery explicit
+        //    jQuery("#content").show().animate({ fontSize: "64px" }, 1000); //givining it an animated style to show it still works
+        //});
+        ////method 3 allows short hand $ within the document ready
+        (function ($) {
+            $("#content").show().animate({ fontSize: "64px" }, 1000); //givining it an animated style to show it still works
+        })(jQuery);
     </script>
 </body>
 </html>
