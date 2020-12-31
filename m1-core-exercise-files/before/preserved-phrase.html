@@ -13,15 +13,16 @@
     <div id="student"></div>
     <script src="Scripts/jquery.min.js"></script>
     <script>
+        //The name of an element is a keyword, avoid this.
         (function () { 
             "use strict"; 
 
             var johnSmith = {
                 name: "John Smith",
-                class: "freshman", 
+                cssClass: "freshman", //Change this name if possible, can also wrap it in quotes
                 gpa: 3.5
             };
-            $("#student").html(johnSmith.name + " " + johnSmith.gpa).addClass(johnSmith.class);
+            $("#student").html(johnSmith.name + " " + johnSmith.gpa).addClass(johnSmith.cssClass);
         }());
     </script>
 </body>
