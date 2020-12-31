@@ -6,10 +6,27 @@
 <body>
     <section id="output"></section>
     <script src="Scripts/jquery.min.js"></script>
+    <!--<script>
+            ////There is a closing div without an open div, fine in modern browsers but older IE will silent fail
+            //$(document).ready(function () {
+            //    $("<ul><li>test 1</li><li>test 2</li></ul></div>") //BUG HERE
+            //        .appendTo("#output");
+            //});
+    </script>-->
+
+    <!--Different stlyes allow for different fixes but must add open div.
+    instead of long div string, put the sting in it's own formatted script block-->
+    <script id="testBlock" type="text/template">
+        <div>
+            <ul>
+                <li>test 1</li>
+                <li>test 2</li>
+            </ul>
+        </div>
+    </script>
     <script>
-        $(document).ready(function () {            
-            $("<ul><li>test 1</li><li>test 2</li></ul></div>")
-                .appendTo("#output");
+        $(document).ready(function () {
+            $($("#testBlock").html()).appendTo("#output");//note the test block needs an html conversion in a jQuery wrapper
         });
     </script>
 </body>
