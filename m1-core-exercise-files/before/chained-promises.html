@@ -7,8 +7,9 @@
     <div id="output" hidden><img src="ajax-loader.gif" /></div>
     <script src="Scripts/jquery.min.js"></script>
     <script>
+        //Note this is an array object. The array is an array of objects
         var promises = [
-            $.getJSON("./contacts.js"),
+            $.getJSON("C:\Users\fulle\Source\Repos\fullera8\IntermediateJQueryCommonBugs\m1-core-exercise-files\before\contacts.js"),
             $("#output").fadeIn("slow"),
             new $.Deferred(function (dfd) {
                 setTimeout(dfd.resolve, 5000);
@@ -16,12 +17,25 @@
             })
         ];
 
-        $.when(promises).then(
+        ////When() accepts 1 to n params not an array of objects. 
+        ////If the param type is not deffered or promise, it is assumed complete immediatly (a non-promise param)
+        //$.when(promises).then(
+        //    function (xhr, faded, timer) {
+        //        faded.html(xhr[0].length + " Contact(s) Found");
+        //    },
+        //    function (xhr, status) {
+        //        $ouput.html("Error retrieving contacts.")
+        //    }
+        //);
+
+        //fix is to use the Apply() method instead which interates through the array
+        $.when.apply($, promises).then(
             function (xhr, faded, timer) {
                 faded.html(xhr[0].length + " Contact(s) Found");
             },
             function (xhr, status) {
-                $ouput.html("Error retrieving contacts.")
+                console.log("Error");
+                //$ouput.html("Error retrieving contacts.")
             }
         );
     </script>
