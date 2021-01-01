@@ -16,10 +16,14 @@
     </ul>
     <script src="Scripts/jquery-2.0.0.min.js"></script>
     <script>
-        $(document).on("mouseenter", "#items li", function (e) {
-            var $this = $(this);
-            $this.addClass("highlight");
-            $this.nextAll().removeClass("highlight");
+        //add toggleClass and hover instead of re-inventing hover and toggle
+        //$(document).on("mouseenter", "#items li", function (e) {
+        $(document).ready(function () {
+            $("#items li").hover(function () {
+                var $this = $(this);
+                $this.toggleClass("highlight");
+                //$this.nextAll().removeClass("highlight");
+            });
         });
     </script>
 </body>
