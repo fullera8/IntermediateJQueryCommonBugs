@@ -33,7 +33,10 @@
                 $sourceItems = $("#source li"),
                 $destination = $("#destination");
 
-            $sourceItems.add("#destination li");
+            //Remeber a new item copy is made and then lost, you need to update the 
+            //existing class
+            //$sourceItems.add("#destination li");
+            $sourceItems = $sourceItems.add("#destination li");
             $sourceItems.removeClass("highlight");
 
             $sourceItems.find("input:checked").each(function () {
