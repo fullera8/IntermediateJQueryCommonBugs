@@ -33,7 +33,11 @@
     <script src="Scripts/jquery.min.js"></script>
     <script>
         $("#push").on("click", function () {
-            $("li:nth-child(1)").prependTo("#stack");
+            //This does not specify the list to grab so the nth-child throws error
+            //Many solutions from giving it the list name in the selector to changing function
+            //$("li:nth-child(1)").prependTo("#stack");
+            //Best solution would be a specific list and a single string selector
+            $("#items-to-push li:first").prependTo("#stack");
         });
 
         $("#pop").on("click", function () {
