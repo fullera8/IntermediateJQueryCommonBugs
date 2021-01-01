@@ -5,6 +5,7 @@
     <style>.required { border: 1px solid red; }</style>
 </head>
 <body>
+    <!--You can NOT add semi-colons or special CSS characters to the name of an attribute-->
     <form id="personForm" name="personForm" method="post" 
         action="/Demo/jsf/main.jsf;jsessionid=0596FB948C236D0FFC162223" 
         enctype="application/x-www-form-urlencoded">
@@ -27,8 +28,9 @@
     </form>
     <script src="Scripts/jquery-2.0.0.min.js"></script>
     <script>
+        //Please avoid this naming convention at all costs
         $(document).ready(function () {
-            $("#personForm:firstname").addClass("required");
+            $("#personForm\\:firstname").addClass("required"); //Use double backslash to escape
         });
     </script>
 </body>
