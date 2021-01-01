@@ -9,7 +9,12 @@
         function notify(message) {
             var $notify = $("#notify");
 
-            if (!$notify) {
+            //Notice the notify is created above then tested if it is created.
+            //Either move the creation to below the test or give a more specific test
+            //if (!$notify) {
+
+            //We check a property of the object like length  which is only true after population
+            if (!$notify.length) {
                 $("<div />", {
                     id: "notify",
                     html: message
