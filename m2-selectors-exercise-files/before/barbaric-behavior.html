@@ -20,7 +20,10 @@
                 $contacts = $("#contacts");
 
 		    var addContacts = function (contacts) {
-		        var list = $contacts.remove();
+				//Remove deletes everything withing the object besides it's basic structure
+				//We only need to remove the data which the detach is made for.
+				//var list = $contacts.remove();
+                var list = $contacts.detach();
 		        $.each(contacts, function (index, contact) {
 		            $("<li />", { html: contact.name }).data("birthday", contact.birthday).appendTo($contacts);
 		        });
