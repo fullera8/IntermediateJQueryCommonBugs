@@ -15,9 +15,19 @@
 	</ul>
     <script src="Scripts/jquery-2.0.0.min.js"></script>
     <script>
-    	$(document).on("click", "#toggleInput input", function (e) {
-    		$("#items").find("input").attr("checked", $(this).attr("checked"));
-    	});
+        //Change the attr to prop because of the function of checkboxes. 
+        //Realistically, add the change() method.
+        //$(document).on("click", "#toggleInput input", function (e) {
+    		////$("#items").find("input").attr("checked", $(this).attr("checked"));
+            //$("#items").find("input").prop("checked", $(this).prop("checked"));
+    	//});
+
+        //Real (modern) way to do this
+        $(function () {
+            $('#toggleInput input').change(function() {
+                $("#items").find("input").prop("checked", $(this).prop("checked"));
+            });
+        });
     </script>
 </body>
 </html>
