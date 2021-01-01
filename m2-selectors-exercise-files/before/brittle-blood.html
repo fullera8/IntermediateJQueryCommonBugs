@@ -25,7 +25,12 @@
     <script>
         $(document).on("click", "#mailbox a", function (e) {
             var $this = $(this),
-                $listItem = $this.parent();
+                //this will get wrapped and not have a parent
+                //$listItem = $this.parent(); 
+
+                //Use the closest instead of parent method. This catches wrappers
+                //and traverses until it finds the closest parent element.
+                $listItem = $this.closest(); 
 
             e.preventDefault();
             $listItem.addClass("highlight");
