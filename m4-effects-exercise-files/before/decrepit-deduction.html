@@ -7,9 +7,16 @@
 <body>
     <a title="A tooltip with default settings, the href is displayed below the title" href="http://google.de">Link to google</a>
     <script src="Scripts/jquery.min.js"></script>
+    <script src="Scripts/jquery-migrate-1.1.1.min.js"></script><!--This can also be used for legacy code that you cannot directly edit the .browser functionality-->
     <script src="Scripts/jquery.tooltip.js"></script>
     <script>
-        $("[title]").tooltip();
+        ////The .browser attribute was dropped in ie 9. Check for IE 8 specific attributes
+        //if ($.browser.msie && parseInt($.browser.version, 10) <= 8) {
+        $("[Title]").tooltip();
+        if (!Modernizr.borderradius) { //Checks attribute of modern browsers
+            $("widget").corner //shim
+            
+        }
     </script>
 </body>
 </html>
