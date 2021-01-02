@@ -5,12 +5,16 @@
 </head>
 <body>
     <script src="Scripts/jquery.min.js"></script>
-    <script>
-        $("header")
-            .html("<h1>Hello</h1>")
-            .on("click", function () { alert($(this).text()); })
-            .append("<h2>World</h2>");
-    </script>
+
     <header>Placeholder</header>
+
+    <script>
+        $(function () {
+            $("header")
+                .html("<h1>Hello</h1>")
+                .on("click", function () { alert($(this).text()); })
+                .append("<h2>World</h2>");
+        });
+    </script>
 </body>
 </html>
