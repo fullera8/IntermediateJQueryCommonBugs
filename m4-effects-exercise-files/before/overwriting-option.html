@@ -11,7 +11,9 @@
     <script>
         (function ($) {
             $.fn.valentines = function (options) {
-                var opts = $.extend($.fn.valentines.defaults, options);
+                //By default extend overwrites the first param, aka the default.
+                //Add a blank function to overwrite nothing
+                var opts = $.extend({}, $.fn.valentines.defaults, options); 
 
                 return this.queue(function (next) {
                     $(this).css("color", opts.color);
