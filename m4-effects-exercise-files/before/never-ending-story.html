@@ -38,15 +38,17 @@
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/jquery-ui.min.js"></script>
     <script src="Scripts/jquery.hoverIntent.minified.js"></script>
     <script>
-    $("#menu li").hover(
-        function () {
-            $(this).find("ul")
-                .slideDown();
-        },
-        function () {
-            $(this).find("ul")
-                .slideUp();
+        $("#menu li").hover(function (e) {
+            $(this).find("ul")//The animation queue needs to have no more than 1 otherwise they will continue on later.
+                .stop(true, true)//This tells the queue to not fill and to jump to the last animation
+                .slideToggle(400, "easeOutCubic"); //toggle the animation
         });
+        //all unecessary, just toggle it
+        //function () {
+        //    $(this).find("ul")
+        //        .stop(true, true)
+        //        .slideUp();
+        //});
     </script>
 </body>
 </html>

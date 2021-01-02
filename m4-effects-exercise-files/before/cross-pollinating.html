@@ -4,10 +4,15 @@
     <title></title>
 </head>
 <body>
-<header>What Is Wrong?</header>
+<header id="newHead">What Is Wrong?</header>
 <script src="Scripts/jquery.min.js"></script>
 <script>
-    $("header").fadeOut("slow").remove();
+    ////The remove happens before the animation is complete. It is not a function that consults the queue.
+    ////Fix by putting this all in an animation queue function.
+    //$("header").fadeOut("slow").remove();
+    $("header").fadeOut("slow", function () {
+        $(this).remove();//This is now in the animation queue and will wait for fade to end.
+    }); 
 </script>
 </body>
 </html>
