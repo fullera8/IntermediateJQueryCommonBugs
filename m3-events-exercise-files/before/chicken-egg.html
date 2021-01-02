@@ -10,10 +10,10 @@
     <script src="Scripts/jquery.js"></script>
     <script>
         var weather;
-        $.getJSON("/weather", function (data) {
+        $.getJSON("/weather").done( function (data) {
             weather = data.forecast;
+            $("#temperature").html(weather.temperature);
         });
-        $("#temperature").html(weather.temperature);
     </script>
 </body>
 </html>
