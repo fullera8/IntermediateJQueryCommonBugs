@@ -18,14 +18,17 @@
     </ul>
     <script src="Scripts/jquery.min.js"></script>
     <script>
+        //notice that the loop will continue regardless of the answer unless broken.
+        //If you do not want to break, store it in a variable and set the variable.
         function listHasNumber($list, numberToFind) {
+            var hasNumber = false; //variable to return, false by default
             $list.find("li").each(function () {
                 if ($(this).data("value") === numberToFind) {
-                    return true;
+                    hasNumber = true; //set to true
                 }
             });
 
-            return false;
+            return hasNumber;//retrurn the variable
         }
 
         var $numberList = $("#numberList");
