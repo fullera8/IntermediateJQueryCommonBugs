@@ -11,7 +11,9 @@
     <script src="Scripts/jquery.js"></script>
 
     <script>
-        $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=Nashville,TN", function (data) {
+        //The request to the URL MUST be the same as the source and use JSONP. &callback=? does backend work to make sure
+        //these rules are met and change the URL accordingly
+        $.getJSON("api.openweathermap.org/data/2.5/weather?id=5128581&appid=a3fcb35c77738d8148c98ba68fb65cb8&callback=?", function (data) { //a3fcb35c77738d8148c98ba68fb65cb8
             var weather = data.main;
             $("#temperature").html(weather.temp);
         });
