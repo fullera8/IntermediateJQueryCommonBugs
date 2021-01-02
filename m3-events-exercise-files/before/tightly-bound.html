@@ -25,9 +25,14 @@
     <script src="Scripts/jquery.min.js"></script>
     <script>
         $(document).ready(function () {
-            $(".circle").on("click", function (e) {
+            ////Want the new shapes to also create circles. This will only bind to the first 2 circles.
+            //$(".circle").on("click", function (e) {
+            //    $("<div class='circle dynamic'></div>").appendTo("#shapes");
+            //});
+            //Need to specify shapes AND class so new ones are included
+            $('#shapes,.circles').click(function (e) {
                 $("<div class='circle dynamic'></div>").appendTo("#shapes");
-            });
+            })
         });
     </script>
 </body>
