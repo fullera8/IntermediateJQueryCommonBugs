@@ -31,10 +31,12 @@
             });
         });
 
+        //The .shape is to give this a unique shell class that can be turned off without turning off all click events
         $("#shapes").on("click dblclick", ".circle", function(e) {
             $(this).clone(true).appendTo("#shapes");
             if (e.type === "dblclick") {
-                $(e.delegateTarget).off("click");
+                //This removes all of the click event handlers not just the immediate one
+                $(e.delegateTarget).off("click"); 
             }
         });
     </script>
