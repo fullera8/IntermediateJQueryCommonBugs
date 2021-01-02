@@ -29,7 +29,7 @@
             //$(".circle").on("click", function (e) {
             //    $("<div class='circle dynamic'></div>").appendTo("#shapes");
             //});
-            //Need to specify shapes AND class so new ones are included
+            //Need to specify shapes AND class so new ones are included by bubbling up the events to the parent
             $('#shapes,.circles').click(function (e) {
                 $("<div class='circle dynamic'></div>").appendTo("#shapes");
             })
