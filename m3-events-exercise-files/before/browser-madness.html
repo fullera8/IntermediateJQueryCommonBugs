@@ -11,7 +11,10 @@
     <script src="Scripts/jquery.min.js"></script>
     <script>
         $("#age").on("keypress", function (e) {
-            var char = String.fromCharCode(e.charCode);
+            //var char = String.fromCharCode(e.charCode);//charCode does not exist in IE 8
+            //jQuery can check the browser automatically to watch out for these non-existent methods
+            //using the which() method that will replace with the appropriate browser method at runtime.
+            var char = String.fromCharCode(e.which);
             if (!~"0123456789".indexOf(char)) {
                 return false;
             }
