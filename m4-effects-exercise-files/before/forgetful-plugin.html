@@ -26,8 +26,9 @@
                         $(this).data(type) === value :
                         $(this).data(type) !== null;
                 });
-
-                return selected;
+                //If the methods are chained and .end() is called, operation will not continue after end.
+                //If you need to use .end() in a chain of custom functions, include this.pushStack to continue the chain.
+                return this.pushStack(selected);
             };
         }(jQuery));
 
