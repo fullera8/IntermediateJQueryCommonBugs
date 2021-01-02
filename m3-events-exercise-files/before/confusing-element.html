@@ -19,7 +19,9 @@
         var app = {
             name: "Fixing Common jQuery Bugs",
             handler: function (e) {
-                var $elem = $(e.target);
+                //var $elem = $(e.target); //Too generic, the user can click outside of the area expected
+                //Point to .currentTarget, this will always point to the event you wired up in the handler.
+                var $elem = $(e.currentTarget);
                 console.log(e.target.classList[0]);
                 $elem.find(".content").text(app.name);
             }
