@@ -17,7 +17,7 @@
         Conference.prototype.register = function( e ) {
             var $attendee = $( $( e.target ).data( "target" ) );
 
-            this.attendees.push( $attendee.val() );
+            this.attendees.push( $attendee.val() ); //This refers to the button originally, need to specify what "this" is.
 
             alert( "Thanks for registering for " + this.name + ". " +
                 "There are " + this.attendees.length +
@@ -29,7 +29,9 @@
         var conference = new Conference( "JavaScript Code Camp" );
 
         $( document ).ready( function() {
-            $( "#register" ).on( "click", conference.register );
+            //$( "#register" ).on( "click", conference.register );//This will pass the button
+            var conf = new Conference("Code Camp");
+            $("#register").on("click", $.proxy(conference.register, conf));//This points to the confrence explicitly
         });
     </script>
 </body>
