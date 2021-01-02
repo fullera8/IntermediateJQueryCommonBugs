@@ -15,10 +15,11 @@
                     $(this).css("color", "red");
                    next();
                 });
+                return this; //makes the function chainable
             };
         }(jQuery));
 
-        $("a").fadeOut("slow").valentines().fadeIn("slow");
+        $("a").fadeOut("slow").valentines().fadeIn("slow"); //you cannot chain by default, you need to return to chain.
     </script>
 </body>
 </html>
